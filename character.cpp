@@ -53,6 +53,7 @@ sf::Sprite character::run_right()
     {
         run_animation_counter = 0;
         run_sprite.setTexture(run_text[run_animation_counter]);
+        run_animation_counter++;
         return run_sprite;
     }
     else
@@ -72,6 +73,7 @@ sf::Sprite character::idle()
     {
         idle_counter = 0;
         idle_sprite.setTexture(idle_text[idle_counter]);
+        idle_counter++;
         return idle_sprite;
     }
     else
@@ -88,6 +90,7 @@ sf::Sprite character::run_left()
     {
         run_animation_counter = 0;
         run_sprite.setTexture(run_text[run_animation_counter]);
+        run_animation_counter++;
         return run_sprite;
 
 
