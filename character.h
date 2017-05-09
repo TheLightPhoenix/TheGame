@@ -10,7 +10,7 @@ class character
     sf::Texture *run_text;
     sf::Texture *idle_text;
     sf::Sprite idle_sprite;
-
+    sf::Sprite run_left_sprite;
 
     public:
     character();
