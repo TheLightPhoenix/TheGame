@@ -34,6 +34,10 @@ character::character()
     idle_text[10].loadFromFile(".\\Animations\\idle\\idle_010.png");
     idle_text[11].loadFromFile(".\\Animations\\idle\\idle_011.png");
 
+    run_left_sprite.setTexture(run_text[0]);
+    run_left_sprite.setScale(-1, 1);
+    run_left_sprite.setPosition(650, 505);
+
     run_sprite.setTexture(run_text[0]);
     run_sprite.setPosition(0, 505);
 
@@ -54,6 +58,9 @@ sf::Sprite character::run_right()
         run_animation_counter = 0;
         run_sprite.setTexture(run_text[run_animation_counter]);
         run_animation_counter++;
+        run_sprite.move(30, 0);
+        idle_sprite.move(30, 0);
+        run_left_sprite.move(30, 0);
         return run_sprite;
     }
     else
@@ -62,6 +69,7 @@ sf::Sprite character::run_right()
         run_animation_counter++;
         run_sprite.move(30, 0);
         idle_sprite.move(30, 0);
+        run_left_sprite.move(30, 0);
 
         return run_sprite;
     }
@@ -89,19 +97,25 @@ sf::Sprite character::run_left()
     if(run_animation_counter > 13)
     {
         run_animation_counter = 0;
-        run_sprite.setTexture(run_text[run_animation_counter]);
+        run_left_sprite.setTexture(run_text[run_animation_counter]);
         run_animation_counter++;
-        return run_sprite;
+        run_sprite.move(-30, 0);
+        idle_sprite.move(-30, 0);
+        run_left_sprite.move(-30, 0);
+        run_left_sprite.setScale(-1, 1);
+        return run_left_sprite;
 
 
     }
     else
     {
-        run_sprite.setTexture(run_text[run_animation_counter]);
+        run_left_sprite.setTexture(run_text[run_animation_counter]);
         run_animation_counter++;
+        run_left_sprite.setScale(-1, 1);
         run_sprite.move(-30, 0);
         idle_sprite.move(-30, 0);
+        run_left_sprite.move(-30, 0);
 
-        return run_sprite;
+        return run_left_sprite;
     }
 }
