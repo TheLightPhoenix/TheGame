@@ -35,10 +35,10 @@ character::character()
     idle_text[11].loadFromFile(".\\Animations\\idle\\idle_011.png");
 
     run_sprite.setTexture(run_text[0]);
-    run_sprite.setPosition(0, 500);
+    run_sprite.setPosition(0, 505);
 
     idle_sprite.setTexture(idle_text[0]);
-    idle_sprite.setPosition(200, 500);
+    idle_sprite.setPosition(200, 505);
 
 }
 character::~character()
@@ -60,8 +60,8 @@ sf::Sprite character::run_right()
     {
         run_sprite.setTexture(run_text[run_animation_counter]);
         run_animation_counter++;
-        run_sprite.move(10, 0);
-        idle_sprite.move(10, 0);
+        run_sprite.move(30, 0);
+        idle_sprite.move(30, 0);
 
         return run_sprite;
     }
@@ -99,8 +99,8 @@ sf::Sprite character::run_left()
     {
         run_sprite.setTexture(run_text[run_animation_counter]);
         run_animation_counter++;
-        run_sprite.move(-10, 0);
-        idle_sprite.move(-10, 0);
+        run_sprite.move(-30, 0);
+        idle_sprite.move(-30, 0);
 
         return run_sprite;
     }

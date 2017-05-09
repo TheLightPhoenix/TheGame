@@ -21,6 +21,9 @@ int main()
 
     while(okno_aplikacji.isOpen())
     {
+        sf::Clock clock;
+        sf::Time t1 = clock.getElapsedTime();
+
         sf::Event zdarzenie;
         while(okno_aplikacji.pollEvent(zdarzenie))
         {
@@ -53,6 +56,12 @@ int main()
 
 
         okno_aplikacji.display();
+
+        while(t1.asSeconds() < 0.045)
+        {
+            t1 = clock.getElapsedTime();
+        }
+
 
     }
     return 0;
