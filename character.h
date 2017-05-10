@@ -5,20 +5,25 @@
 
 class character
 {
-    int run_animation_counter, idle_counter;
-    sf::Sprite run_sprite;
-    sf::Texture *run_text;
-    sf::Texture *idle_text;
-    sf::Sprite idle_sprite;
-    sf::Sprite run_left_sprite;
+    float x, y, running_speed, jump_speed, gravity;
+
+    bool b_right, b_left, b_idle, was_running_left, b_jump;
+    int idle_animation_counter, run_right_animation_counter, run_left_animation_counter;
+    sf::Sprite run_right_sprite, run_left_sprite, idle_sprite, jump_sprite;
+    sf::Texture *idle_text, *jump_text, *run_text;
 
     public:
+
     character();
     ~character();
-    sf::Sprite run_right();
-    sf::Sprite run_left();
-    sf::Sprite idle();
-    void spawn();
+
+
+    void run_right();
+    void run_left();
+    void jump();
+    void idle();
+    sf::Sprite draw();
+
 
 };
 
