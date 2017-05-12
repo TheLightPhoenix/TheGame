@@ -5,8 +5,8 @@
 
 class game
 {
-    sf::Clock clock, jump_clock;
-    sf::Time t1, jump_start, jump_on_air;
+    sf::Clock jump_clock;
+    sf::Time jump_start, jump_on_air;
 
     bool w_prawo, w_lewo, space;
 

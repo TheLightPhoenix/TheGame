@@ -5,14 +5,15 @@ character::character()
     x = 500;
     y = 725;
     running_speed = 14;
-    jump_speed = 20;
-    gravity = 200;
+    jump_speed = 30;
+    current_jump_speed = 0;
+    gravity = 120;
 
+    jump_animation_counter = 0;
     idle_animation_counter = 0;
     run_right_animation_counter = 0;
     run_left_animation_counter = 0;
 
-    b_jump = 0;
     b_right = 0;
     b_left = 0;
     b_idle = 1;
@@ -59,12 +60,13 @@ character::character()
     jump_text[7].loadFromFile(".\\Animations\\Jump Start\\Jump Start_007.png");
     jump_text[8].loadFromFile(".\\Animations\\Jump Start\\Jump Start_008.png");
     jump_text[9].loadFromFile(".\\Animations\\Jump Start\\Jump Start_009.png");
-    jump_text[10].loadFromFile(".\\Animations\\Jump On Air\\Jump On Air_010.png");
-    jump_text[11].loadFromFile(".\\Animations\\Jump Fall\\Jump Fall_011.png");
+    jump_text[10].loadFromFile(".\\Animations\\Jump On Air\\Jump On Air_000.png");
+    jump_text[11].loadFromFile(".\\Animations\\Jump Fall\\Jump Fall_000.png");
 
     run_right_sprite = new sf::Sprite[14];
     run_left_sprite = new sf::Sprite[14];
-    jump_sprite = new sf::Sprite[12];
+    right_jump_sprite = new sf::Sprite[12];
+    left_jump_sprite = new sf::Sprite[12];
     right_idle_sprite = new sf::Sprite[12];
     left_idle_sprite = new sf::Sprite[12];
 
@@ -90,6 +92,14 @@ character::character()
         left_idle_sprite[i].setPosition(x, y);
         left_idle_sprite[i].setOrigin(190, 0);
         left_idle_sprite[i].setScale(-0.5, 0.5);
+
+        right_jump_sprite[i].setTexture(jump_text[i]);
+        right_jump_sprite[i].setPosition(x - 150, y);
+        right_jump_sprite[i].setScale(0.5, 0.5);
+
+        left_jump_sprite[i].setTexture(jump_text[i]);
+        left_jump_sprite[i].setPosition(x + 100, y);
+        left_jump_sprite[i].setScale(-0.5, 0.5);
     }
 
 
@@ -104,15 +114,18 @@ character::~character()
 void character::run_right()
 {
     x = x + running_speed;
-    for(int i = 0; i<14; i++)
+    for(int i = 0; i < 14; i++)
     {
         run_right_sprite[i].move(running_speed, 0);
         run_left_sprite[i].move(running_speed, 0);
+
     }
     for(int i = 0; i < 12; i++)
     {
         right_idle_sprite[i].move(running_speed, 0);
         left_idle_sprite[i].move(running_speed, 0);
+        right_jump_sprite[i].move(running_speed, 0);
+        left_jump_sprite[i].move(running_speed, 0);
     }
 
     b_right = true;
@@ -130,15 +143,19 @@ void character::run_left()
     {
         run_right_sprite[i].move(-running_speed, 0);
         run_left_sprite[i].move(-running_speed, 0);
+
     }
     for(int i = 0; i < 12; i++)
     {
         right_idle_sprite[i].move(-running_speed, 0);
         left_idle_sprite[i].move(-running_speed, 0);
+        right_jump_sprite[i].move(-running_speed, 0);
+        left_jump_sprite[i].move(-running_speed, 0);
     }
     b_right = false;
     b_left = true;
     b_idle = false;
+
     was_running_left = true;
 }
 
@@ -147,38 +164,47 @@ void character::idle()
     b_right = false;
     b_left = false;
     b_idle = true;
+
 }
 
 bool character::jump(sf::Time dt)
 {
-    b_jump = true;
-    if((y - jump_speed + gravity * dt.asSeconds() * dt.asSeconds()) <= 725)
+    b_right = false;
+    b_left = false;
+    b_idle = false;
+    if((y - jump_speed + gravity * dt.asSeconds() * dt.asSeconds()) < 725)
     {
-    y = y - jump_speed + gravity * dt.asSeconds() * dt.asSeconds();
-    for(int i = 0; i<14; i++)
-    {
-        run_right_sprite[i].move(0, -jump_speed + gravity * dt.asSeconds() * dt.asSeconds());
-        run_left_sprite[i].move(0, -jump_speed + gravity * dt.asSeconds() * dt.asSeconds());
-    }
-    for(int i = 0; i < 12; i++)
-    {
-        right_idle_sprite[i].move(0, -jump_speed + gravity * dt.asSeconds() * dt.asSeconds());
-        left_idle_sprite[i].move(0, -jump_speed + gravity * dt.asSeconds() * dt.asSeconds());
-    }
-    return 1;
+        current_jump_speed = - jump_speed + gravity * dt.asSeconds() * dt.asSeconds();
+        y = y - jump_speed + gravity * dt.asSeconds() * dt.asSeconds();
+        for(int i = 0; i < 14; i++)
+        {
+            run_right_sprite[i].move(0, -jump_speed + gravity * dt.asSeconds() * dt.asSeconds());
+            run_left_sprite[i].move(0, -jump_speed + gravity * dt.asSeconds() * dt.asSeconds());
+        }
+        for(int i = 0; i < 12; i++)
+        {
+            right_idle_sprite[i].move(0, -jump_speed + gravity * dt.asSeconds() * dt.asSeconds());
+            left_idle_sprite[i].move(0, -jump_speed + gravity * dt.asSeconds() * dt.asSeconds());
+            right_jump_sprite[i].move(0, -jump_speed + gravity * dt.asSeconds() * dt.asSeconds());
+            left_jump_sprite[i].move(0, -jump_speed + gravity * dt.asSeconds() * dt.asSeconds());
+        }
+        return 1;
     }
     else
     {
         y = 725;
-        for(int i = 0; i<14; i++)
+        for(int i = 0; i < 14; i++)
         {
             run_right_sprite[i].setPosition(x - 150, y);
             run_left_sprite[i].setPosition(x + 225, y);
+
         }
         for(int i = 0; i < 12; i++)
         {
             right_idle_sprite[i].setPosition(x, y);
             left_idle_sprite[i].setPosition(x, y);
+            right_jump_sprite[i].setPosition(x - 150, y);
+            left_jump_sprite[i].setPosition(x + 100, y);
         }
 
         return 0;
@@ -188,6 +214,36 @@ bool character::jump(sf::Time dt)
 
 sf::Sprite character::draw()
 {
+    if(current_jump_speed < 0)
+    {
+        if(jump_animation_counter < 10)
+        {
+            jump_animation_counter++;
+            if(was_running_left)
+                return left_jump_sprite[jump_animation_counter - 1];
+            else
+                return right_jump_sprite[jump_animation_counter - 1];
+        }
+        if(jump_animation_counter == 10)
+        {
+            if(was_running_left)
+                return left_jump_sprite[10];
+            else
+                return right_jump_sprite[10];
+        }
+
+    }
+    else if(current_jump_speed > 0)
+    {
+        jump_animation_counter = 0;
+        current_jump_speed = 0;
+        if(was_running_left)
+            return left_jump_sprite[11];
+        else
+            return right_jump_sprite[11];
+
+    }
+
     if(b_idle)
     {
 

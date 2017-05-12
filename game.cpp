@@ -18,9 +18,6 @@ void game::start(unsigned int window_width, unsigned int window_height, unsigned
 
     while(game_window.isOpen())
     {
-        clock.restart();
-        t1 = clock.getElapsedTime();
-
         sf::Event zdarzenie;
         while(game_window.pollEvent(zdarzenie))
         {
