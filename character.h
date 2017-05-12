@@ -9,7 +9,7 @@ class character
 
     bool b_right, b_left, b_idle, was_running_left, b_jump;
     int idle_animation_counter, run_right_animation_counter, run_left_animation_counter;
-    sf::Sprite run_right_sprite, run_left_sprite, idle_sprite, jump_sprite;
+    sf::Sprite *run_right_sprite, *run_left_sprite, *right_idle_sprite, *left_idle_sprite, *jump_sprite;
     sf::Texture *idle_text, *jump_text, *run_text;
 
     public:
@@ -20,7 +20,7 @@ class character
 
     void run_right();
     void run_left();
-    void jump(sf::Time, bool&);
+    bool jump(sf::Time);
     void idle();
     sf::Sprite draw();
 

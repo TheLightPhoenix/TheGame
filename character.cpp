@@ -3,10 +3,10 @@
 character::character()
 {
     x = 500;
-    y = 505;
-    running_speed = 30;
-    jump_speed = 60;
-    gravity = 2;
+    y = 725;
+    running_speed = 14;
+    jump_speed = 20;
+    gravity = 200;
 
     idle_animation_counter = 0;
     run_right_animation_counter = 0;
@@ -62,11 +62,36 @@ character::character()
     jump_text[10].loadFromFile(".\\Animations\\Jump On Air\\Jump On Air_010.png");
     jump_text[11].loadFromFile(".\\Animations\\Jump Fall\\Jump Fall_011.png");
 
-    idle_sprite.setPosition(x, y);
-    idle_sprite.setOrigin(190, 0);
-    run_right_sprite.setPosition(x - 300, y);
-    run_left_sprite.setPosition(x + 450, y);
-    jump_sprite.setPosition(x, y);
+    run_right_sprite = new sf::Sprite[14];
+    run_left_sprite = new sf::Sprite[14];
+    jump_sprite = new sf::Sprite[12];
+    right_idle_sprite = new sf::Sprite[12];
+    left_idle_sprite = new sf::Sprite[12];
+
+    for(int i = 0; i < 14; i++)
+    {
+        run_right_sprite[i].setTexture(run_text[i]);
+        run_right_sprite[i].setPosition(x - 150, y);
+        run_right_sprite[i].setScale(0.5, 0.5);
+        run_left_sprite[i].setTexture(run_text[i]);
+        run_left_sprite[i].setPosition(x + 225, y);
+        run_left_sprite[i].setScale(-0.5, 0.5);
+
+    }
+
+    for(int i = 0; i < 12; i++)
+    {
+        right_idle_sprite[i].setTexture(idle_text[i]);
+        right_idle_sprite[i].setPosition(x, y);
+        right_idle_sprite[i].setOrigin(190, 0);
+        right_idle_sprite[i].setScale(0.5, 0.5);
+
+        left_idle_sprite[i].setTexture(idle_text[i]);
+        left_idle_sprite[i].setPosition(x, y);
+        left_idle_sprite[i].setOrigin(190, 0);
+        left_idle_sprite[i].setScale(-0.5, 0.5);
+    }
+
 
 }
 character::~character()
@@ -79,10 +104,17 @@ character::~character()
 void character::run_right()
 {
     x = x + running_speed;
-    run_right_sprite.move(running_speed, 0);
-    run_left_sprite.move(running_speed, 0);
-    idle_sprite.move(running_speed, 0);
-    jump_sprite.move(running_speed, 0);
+    for(int i = 0; i<14; i++)
+    {
+        run_right_sprite[i].move(running_speed, 0);
+        run_left_sprite[i].move(running_speed, 0);
+    }
+    for(int i = 0; i < 12; i++)
+    {
+        right_idle_sprite[i].move(running_speed, 0);
+        left_idle_sprite[i].move(running_speed, 0);
+    }
+
     b_right = true;
     b_left = false;
     b_idle = false;
@@ -94,10 +126,16 @@ void character::run_right()
 void character::run_left()
 {
     x = x - running_speed;
-    run_right_sprite.move(-running_speed, 0);
-    run_left_sprite.move(-running_speed, 0);
-    idle_sprite.move(-running_speed, 0);
-    jump_sprite.move(-running_speed, 0);
+    for(int i = 0; i<14; i++)
+    {
+        run_right_sprite[i].move(-running_speed, 0);
+        run_left_sprite[i].move(-running_speed, 0);
+    }
+    for(int i = 0; i < 12; i++)
+    {
+        right_idle_sprite[i].move(-running_speed, 0);
+        left_idle_sprite[i].move(-running_speed, 0);
+    }
     b_right = false;
     b_left = true;
     b_idle = false;
@@ -111,44 +149,49 @@ void character::idle()
     b_idle = true;
 }
 
-void character::jump(sf::Time dt, bool &space)
+bool character::jump(sf::Time dt)
 {
     b_jump = true;
-    if((y - jump_speed + 300 * dt.asSeconds() * dt.asSeconds()) <= 505)
+    if((y - jump_speed + gravity * dt.asSeconds() * dt.asSeconds()) <= 725)
     {
-    y = y - jump_speed + 300 * dt.asSeconds() * dt.asSeconds();
-    jump_sprite.move(0, -jump_speed + 300 * dt.asSeconds() * dt.asSeconds());
-    run_right_sprite.move(0, -jump_speed + 300 * dt.asSeconds() * dt.asSeconds());
-    run_left_sprite.move(0, -jump_speed + 300 * dt.asSeconds() * dt.asSeconds());
-    idle_sprite.move(0, -jump_speed + 300 * dt.asSeconds() * dt.asSeconds());
+    y = y - jump_speed + gravity * dt.asSeconds() * dt.asSeconds();
+    for(int i = 0; i<14; i++)
+    {
+        run_right_sprite[i].move(0, -jump_speed + gravity * dt.asSeconds() * dt.asSeconds());
+        run_left_sprite[i].move(0, -jump_speed + gravity * dt.asSeconds() * dt.asSeconds());
+    }
+    for(int i = 0; i < 12; i++)
+    {
+        right_idle_sprite[i].move(0, -jump_speed + gravity * dt.asSeconds() * dt.asSeconds());
+        left_idle_sprite[i].move(0, -jump_speed + gravity * dt.asSeconds() * dt.asSeconds());
+    }
+    return 1;
     }
     else
     {
-        y = 505;
-        jump_sprite.setPosition(x, y);
-        run_right_sprite.setPosition(x - 300, y);
-        run_left_sprite.setPosition(x + 450, y);
-        idle_sprite.setPosition(x, y);
-        space = 0;
+        y = 725;
+        for(int i = 0; i<14; i++)
+        {
+            run_right_sprite[i].setPosition(x - 150, y);
+            run_left_sprite[i].setPosition(x + 225, y);
+        }
+        for(int i = 0; i < 12; i++)
+        {
+            right_idle_sprite[i].setPosition(x, y);
+            left_idle_sprite[i].setPosition(x, y);
+        }
+
+        return 0;
     }
-    return;
+
 }
 
 sf::Sprite character::draw()
 {
     if(b_idle)
     {
-        idle_sprite.setTexture(idle_text[idle_animation_counter]);
-        if(was_running_left)
-        {
-            idle_sprite.setScale(-1, 1);
-        }
-        else
-        {
-            idle_sprite.setScale(1, 1);
-        }
 
-        if(idle_animation_counter < 11)
+        if(idle_animation_counter < 33)
         {
             idle_animation_counter++;
         }
@@ -158,13 +201,15 @@ sf::Sprite character::draw()
         }
         run_right_animation_counter = 0;
         run_left_animation_counter = 0;
-        return idle_sprite;
+        if(was_running_left)
+            return left_idle_sprite[(idle_animation_counter-1)/3];
+        else
+            return right_idle_sprite[(idle_animation_counter-1)/3];
     }
     if(b_right)
     {
-        run_right_sprite.setTexture(run_text[run_right_animation_counter]);
 
-        if(run_right_animation_counter < 13)
+        if(run_right_animation_counter < 39)
         {
             run_right_animation_counter++;
         }
@@ -174,13 +219,11 @@ sf::Sprite character::draw()
         }
         idle_animation_counter = 0;
         run_left_animation_counter = 0;
-        return run_right_sprite;
+        return run_right_sprite[(run_right_animation_counter-1)/3];
     }
     if(b_left)
     {
-        run_left_sprite.setTexture(run_text[run_left_animation_counter]);
-        run_left_sprite.setScale(-1, 1);
-        if(run_left_animation_counter < 13)
+        if(run_left_animation_counter < 39)
         {
             run_left_animation_counter++;
         }
@@ -190,7 +233,7 @@ sf::Sprite character::draw()
         }
         idle_animation_counter = 0;
         run_right_animation_counter = 0;
-        return run_left_sprite;
+        return run_left_sprite[(run_left_animation_counter-1)/3];
     }
 
 
