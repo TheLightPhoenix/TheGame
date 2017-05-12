@@ -14,6 +14,8 @@ void game::start(unsigned int window_width, unsigned int window_height, unsigned
 {
     character bohater;
     game_window.create(sf::VideoMode(window_width, window_height, 32), "Gra", style);
+    game_window.setFramerateLimit(60);
+
     while(game_window.isOpen())
     {
         clock.restart();
@@ -72,10 +74,7 @@ void game::start(unsigned int window_width, unsigned int window_height, unsigned
 
         game_window.display();
 
-        while(t1.asSeconds() < 0.020)
-        {
-            t1 = clock.getElapsedTime();
-        }
+
 
 
     }
