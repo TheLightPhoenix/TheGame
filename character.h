@@ -20,7 +20,7 @@ class character
 
     void run_right();
     void run_left();
-    void jump();
+    void jump(sf::Time, bool&);
     void idle();
     sf::Sprite draw();
 

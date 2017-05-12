@@ -5,7 +5,7 @@ character::character()
     x = 500;
     y = 505;
     running_speed = 30;
-    jump_speed = 20;
+    jump_speed = 60;
     gravity = 2;
 
     idle_animation_counter = 0;
@@ -111,18 +111,27 @@ void character::idle()
     b_idle = true;
 }
 
-void character::jump()
+void character::jump(sf::Time dt, bool &space)
 {
     b_jump = true;
-    if(y <= 505)
+    if((y - jump_speed + 300 * dt.asSeconds() * dt.asSeconds()) <= 505)
     {
-    y = y - jump_speed;
-    jump_sprite.move(0, -jump_speed);
-    run_right_sprite.move(0, -jump_speed);
-    run_left_sprite.move(0, -jump_speed);
-    idle_sprite.move(0, -jump_speed);
-
+    y = y - jump_speed + 300 * dt.asSeconds() * dt.asSeconds();
+    jump_sprite.move(0, -jump_speed + 300 * dt.asSeconds() * dt.asSeconds());
+    run_right_sprite.move(0, -jump_speed + 300 * dt.asSeconds() * dt.asSeconds());
+    run_left_sprite.move(0, -jump_speed + 300 * dt.asSeconds() * dt.asSeconds());
+    idle_sprite.move(0, -jump_speed + 300 * dt.asSeconds() * dt.asSeconds());
     }
+    else
+    {
+        y = 505;
+        jump_sprite.setPosition(x, y);
+        run_right_sprite.setPosition(x - 300, y);
+        run_left_sprite.setPosition(x + 450, y);
+        idle_sprite.setPosition(x, y);
+        space = 0;
+    }
+    return;
 }
 
 sf::Sprite character::draw()

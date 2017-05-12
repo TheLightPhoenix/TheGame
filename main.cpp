@@ -7,7 +7,10 @@
 
 int main()
 {
-    bool w_prawo=0, w_lewo=0, jump=0;
+    sf::Clock clock, jump_clock;
+    sf::Time t1, jump_start, jump_on_air, dt;
+
+    bool w_prawo=0, w_lewo=0, space=0, pomiar_czasu;
     sf::RenderWindow okno_aplikacji(sf::VideoMode(1920, 1080, 32), "Gra", sf::Style::Fullscreen);
     okno_aplikacji.setVerticalSyncEnabled(true);
 
@@ -21,8 +24,8 @@ int main()
 
     while(okno_aplikacji.isOpen())
     {
-        sf::Clock clock;
-        sf::Time t1 = clock.getElapsedTime();
+        clock.restart();
+        t1 = clock.getElapsedTime();
 
         sf::Event zdarzenie;
         while(okno_aplikacji.pollEvent(zdarzenie))
@@ -40,16 +43,29 @@ int main()
                 w_lewo = 1;
             if( zdarzenie.type == sf::Event::KeyReleased && zdarzenie.key.code == sf::Keyboard::A && w_lewo == 1)
                 w_lewo = 0;
-            if( zdarzenie.type == sf::Event::KeyPressed && zdarzenie.key.code == sf::Keyboard::Space && jump == 0)
-                jump = 1;
-            if( zdarzenie.type == sf::Event::KeyReleased && zdarzenie.key.code == sf::Keyboard::Space && jump == 1)
-                jump = 0;
+            if( zdarzenie.type == sf::Event::KeyPressed && zdarzenie.key.code == sf::Keyboard::Space && space == 0)
+            {
+                space = 1;
+                pomiar_czasu = 1;
+            }
 
         }
 
         okno_aplikacji.clear( sf::Color( 0, 0, 0 ) );
         okno_aplikacji.draw(tlo1);
 
+        if(pomiar_czasu)
+        {
+            jump_start = jump_clock.getElapsedTime();
+            pomiar_czasu = 0;
+        }
+        if(space)
+        {
+            jump_on_air = jump_clock.getElapsedTime();
+            dt = jump_on_air - jump_start;
+            bohater.jump(dt, space);
+
+        }
 
         if(w_prawo && !w_lewo)
         {
