@@ -12,9 +12,6 @@ class game
 
     sf::RenderWindow game_window;
 
-    sf::Texture background;
-
-    sf::Sprite tlo;
 
 
 

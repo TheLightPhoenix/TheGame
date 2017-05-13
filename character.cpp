@@ -3,7 +3,7 @@
 character::character()
 {
     x = 500;
-    y = 725;
+    y = 690;
     running_speed = 14;
     jump_speed = 30;
     current_jump_speed = 0;
@@ -109,6 +109,12 @@ character::~character()
     delete [] run_text;
     delete [] idle_text;
     delete [] jump_text;
+    delete [] run_right_sprite;
+    delete [] run_left_sprite;
+    delete [] right_idle_sprite;
+    delete [] left_idle_sprite;
+    delete [] right_jump_sprite;
+    delete [] left_jump_sprite;
 }
 
 void character::run_right()
@@ -192,7 +198,7 @@ bool character::jump(sf::Time dt)
     }
     else
     {
-        y = 725;
+        y = 690;
         for(int i = 0; i < 14; i++)
         {
             run_right_sprite[i].setPosition(x - 150, y);
