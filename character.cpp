@@ -5,7 +5,7 @@ character::character()
     x = 500;
     y = 690;
     running_speed = 14;
-    jump_speed = 30;
+    jump_speed = 50;
     current_jump_speed = 0;
     gravity = 120;
 
@@ -178,21 +178,23 @@ bool character::jump(sf::Time dt)
     b_right = false;
     b_left = false;
     b_idle = false;
-    if((y - jump_speed + gravity * dt.asSeconds() * dt.asSeconds()) < 725)
+
+    current_jump_speed = - jump_speed + gravity * dt.asSeconds();
+
+    if((y + current_jump_speed) < 725)
     {
-        current_jump_speed = - jump_speed + gravity * dt.asSeconds() * dt.asSeconds();
-        y = y - jump_speed + gravity * dt.asSeconds() * dt.asSeconds();
+        y = y + current_jump_speed;
         for(int i = 0; i < 14; i++)
         {
-            run_right_sprite[i].move(0, -jump_speed + gravity * dt.asSeconds() * dt.asSeconds());
-            run_left_sprite[i].move(0, -jump_speed + gravity * dt.asSeconds() * dt.asSeconds());
+            run_right_sprite[i].move(0, current_jump_speed);
+            run_left_sprite[i].move(0, current_jump_speed);
         }
         for(int i = 0; i < 12; i++)
         {
-            right_idle_sprite[i].move(0, -jump_speed + gravity * dt.asSeconds() * dt.asSeconds());
-            left_idle_sprite[i].move(0, -jump_speed + gravity * dt.asSeconds() * dt.asSeconds());
-            right_jump_sprite[i].move(0, -jump_speed + gravity * dt.asSeconds() * dt.asSeconds());
-            left_jump_sprite[i].move(0, -jump_speed + gravity * dt.asSeconds() * dt.asSeconds());
+            right_idle_sprite[i].move(0, current_jump_speed);
+            left_idle_sprite[i].move(0, current_jump_speed);
+            right_jump_sprite[i].move(0, current_jump_speed);
+            left_jump_sprite[i].move(0, current_jump_speed);
         }
         return 1;
     }
