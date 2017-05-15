@@ -54,9 +54,7 @@ void level::move_sprites_right()
     for(int i = 0; i < 5; i++)
     {
         background_sprite_middle[i].move(1920, 0);
-
         background_sprite_left[i].move(1920, 0);
-
         background_sprite_right[i].move(1920, 0);
     }
 }
@@ -67,9 +65,7 @@ void level::move_sprites_left()
     for(int i = 0; i < 5; i++)
     {
         background_sprite_middle[i].move(-1920, 0);
-
         background_sprite_left[i].move(-1920, 0);
-
         background_sprite_right[i].move(-1920, 0);
     }
 }

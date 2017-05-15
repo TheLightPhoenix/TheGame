@@ -7,7 +7,6 @@ game::game()
     w_prawo = 0;
     w_lewo = 0;
     space = 0;
-
 }
 
 void game::start(unsigned int window_width, unsigned int window_height, unsigned int style)
@@ -47,8 +46,6 @@ void game::start(unsigned int window_width, unsigned int window_height, unsigned
 
         }
 
-        game_window.clear( sf::Color( 0, 0, 0 ) );
-
         if(w_prawo && bohater.x - view_x > 1000)
         {
             view.move(bohater.running_speed, 0);
@@ -58,9 +55,6 @@ void game::start(unsigned int window_width, unsigned int window_height, unsigned
         if(bohater.x - mapa.middle_sprite_x >= 1920)
             mapa.move_sprites_right();
 
-
-
-
         if(w_lewo && bohater.x - view_x < 300)
         {
             view.move(-bohater.running_speed, 0);
@@ -68,10 +62,6 @@ void game::start(unsigned int window_width, unsigned int window_height, unsigned
         }
         if(bohater.x - mapa.middle_sprite_x < 0)
             mapa.move_sprites_left();
-
-
-
-        mapa.draw(game_window);
 
         if(space)
         {
@@ -82,23 +72,20 @@ void game::start(unsigned int window_width, unsigned int window_height, unsigned
         if(w_prawo && !w_lewo)
         {
             bohater.run_right();
-            game_window.draw(bohater.draw());
         }
         else if(w_lewo && !w_prawo)
         {
             bohater.run_left();
-            game_window.draw(bohater.draw());
         }
         else
         {
             bohater.idle();
-            game_window.draw(bohater.draw());
         }
 
-
+        game_window.clear( sf::Color( 0, 0, 0 ) );
+        mapa.draw(game_window);
+        bohater.draw(game_window);
         game_window.setView(view);
-
         game_window.display();
-
     }
 }

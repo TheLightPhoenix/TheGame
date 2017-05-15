@@ -2,8 +2,9 @@
 
 character::character()
 {
+    floor = 690;
     x = 500;
-    y = 690;
+    y = floor;
     running_speed = 14;
     jump_speed = 50;
     current_jump_speed = 0;
@@ -17,6 +18,7 @@ character::character()
     b_right = 0;
     b_left = 0;
     b_idle = 1;
+    last_jump_sprite = 0;
     was_running_left = 0;
 
     run_text = new sf::Texture[14];
@@ -78,7 +80,6 @@ character::character()
         run_left_sprite[i].setTexture(run_text[i]);
         run_left_sprite[i].setPosition(x + 225, y);
         run_left_sprite[i].setScale(-0.5, 0.5);
-
     }
 
     for(int i = 0; i < 12; i++)
@@ -101,8 +102,6 @@ character::character()
         left_jump_sprite[i].setPosition(x + 100, y);
         left_jump_sprite[i].setScale(-0.5, 0.5);
     }
-
-
 }
 character::~character()
 {
@@ -124,7 +123,6 @@ void character::run_right()
     {
         run_right_sprite[i].move(running_speed, 0);
         run_left_sprite[i].move(running_speed, 0);
-
     }
     for(int i = 0; i < 12; i++)
     {
@@ -140,16 +138,13 @@ void character::run_right()
     was_running_left = false;
 }
 
-
-
 void character::run_left()
 {
     x = x - running_speed;
-    for(int i = 0; i<14; i++)
+    for(int i = 0; i < 14; i++)
     {
         run_right_sprite[i].move(-running_speed, 0);
         run_left_sprite[i].move(-running_speed, 0);
-
     }
     for(int i = 0; i < 12; i++)
     {
@@ -170,7 +165,6 @@ void character::idle()
     b_right = false;
     b_left = false;
     b_idle = true;
-
 }
 
 bool character::jump(sf::Time dt)
@@ -200,12 +194,11 @@ bool character::jump(sf::Time dt)
     }
     else
     {
-        y = 690;
+        y = floor;
         for(int i = 0; i < 14; i++)
         {
             run_right_sprite[i].setPosition(x - 150, y);
             run_left_sprite[i].setPosition(x + 225, y);
-
         }
         for(int i = 0; i < 12; i++)
         {
@@ -214,47 +207,50 @@ bool character::jump(sf::Time dt)
             right_jump_sprite[i].setPosition(x - 150, y);
             left_jump_sprite[i].setPosition(x + 100, y);
         }
-
+        last_jump_sprite = 1;
         return 0;
     }
-
 }
 
-sf::Sprite character::draw()
+void character::draw(sf::RenderWindow &game_window)
 {
+    if(y != floor || last_jump_sprite)
+    {
+        is_jumping = 1;
+        last_jump_sprite = 0;
+    }
+    else
+        is_jumping = 0;
     if(current_jump_speed < 0)
     {
         if(jump_animation_counter < 10)
         {
             jump_animation_counter++;
             if(was_running_left)
-                return left_jump_sprite[jump_animation_counter - 1];
+                game_window.draw(left_jump_sprite[jump_animation_counter - 1]);
             else
-                return right_jump_sprite[jump_animation_counter - 1];
+                game_window.draw(right_jump_sprite[jump_animation_counter - 1]);
         }
         if(jump_animation_counter == 10)
         {
             if(was_running_left)
-                return left_jump_sprite[10];
+                game_window.draw(left_jump_sprite[10]);
             else
-                return right_jump_sprite[10];
+                game_window.draw(right_jump_sprite[10]);
         }
-
     }
     else if(current_jump_speed > 0)
     {
         jump_animation_counter = 0;
         current_jump_speed = 0;
         if(was_running_left)
-            return left_jump_sprite[11];
+            game_window.draw(left_jump_sprite[11]);
         else
-            return right_jump_sprite[11];
-
+            game_window.draw(right_jump_sprite[11]);
     }
 
-    if(b_idle)
+    if(b_idle && !is_jumping && !last_jump_sprite)
     {
-
         if(idle_animation_counter < 33)
         {
             idle_animation_counter++;
@@ -266,13 +262,12 @@ sf::Sprite character::draw()
         run_right_animation_counter = 0;
         run_left_animation_counter = 0;
         if(was_running_left)
-            return left_idle_sprite[(idle_animation_counter-1)/3];
+            game_window.draw(left_idle_sprite[(idle_animation_counter-1)/3]);
         else
-            return right_idle_sprite[(idle_animation_counter-1)/3];
+            game_window.draw(right_idle_sprite[(idle_animation_counter-1)/3]);
     }
-    if(b_right)
+    if(b_right && !is_jumping && !last_jump_sprite)
     {
-
         if(run_right_animation_counter < 39)
         {
             run_right_animation_counter++;
@@ -283,9 +278,9 @@ sf::Sprite character::draw()
         }
         idle_animation_counter = 0;
         run_left_animation_counter = 0;
-        return run_right_sprite[(run_right_animation_counter-1)/3];
+        game_window.draw(run_right_sprite[(run_right_animation_counter-1)/3]);
     }
-    if(b_left)
+    if(b_left && !is_jumping && !last_jump_sprite)
     {
         if(run_left_animation_counter < 39)
         {
@@ -297,9 +292,6 @@ sf::Sprite character::draw()
         }
         idle_animation_counter = 0;
         run_right_animation_counter = 0;
-        return run_left_sprite[(run_left_animation_counter-1)/3];
+        game_window.draw(run_left_sprite[(run_left_animation_counter-1)/3]);
     }
-
-
 }
-
