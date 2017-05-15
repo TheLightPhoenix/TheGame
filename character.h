@@ -6,11 +6,11 @@
 class character
 {
     public:
-    float x, y, running_speed, jump_speed, current_jump_speed, gravity, floor;
+    float x, y, running_speed, current_running_speed, acceleration, jump_speed, current_jump_speed, gravity, floor;
 
     private:
 
-    bool b_right, b_left, b_idle, is_jumping, was_running_left, last_jump_sprite;
+    bool is_jumping, was_running_left;
 
     int idle_animation_counter, run_right_animation_counter, run_left_animation_counter, jump_animation_counter;
 
@@ -20,10 +20,10 @@ class character
     public:
     character();
     ~character();
-    void run_right();
-    void run_left();
+    void run_right(sf::Time);
+    void run_left(sf::Time);
     bool jump(sf::Time);
-    void idle();
+    bool hamuj(sf::Time);
     void draw(sf::RenderWindow &);
 };
 

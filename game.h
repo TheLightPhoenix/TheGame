@@ -5,10 +5,10 @@
 
 class game
 {
-    sf::Clock jump_clock;
-    sf::Time jump_start, jump_on_air;
+    sf::Clock clock;
+    sf::Time jump_start, jump_on_air, running_right_start, running_left_start, current_time, breaking_time;
 
-    bool w_prawo, w_lewo, space;
+    bool w_prawo, w_lewo, space, hamuj;
 
     sf::RenderWindow game_window;
 
