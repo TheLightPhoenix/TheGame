@@ -6,6 +6,7 @@ class celownik
 {
     public:
     sf::Vector2i position;
+    sf::Vector2f cel_position;
     sf::Texture cel_text;
     sf::Sprite cel_sprite;
     float x_0;
