@@ -1,6 +1,9 @@
 #ifndef GAME_H
 #define GAME_H
 #include <SFML/Graphics.hpp>
+#include "character.h"
+#include "level.h"
+#include "celownik.h"
 
 
 class game

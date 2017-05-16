@@ -1,6 +1,5 @@
 #include "game.h"
-#include "character.h"
-#include "level.h"
+
 
 game::game()
 {
@@ -17,9 +16,11 @@ void game::start(unsigned int window_width, unsigned int window_height, unsigned
     game_window.create(sf::VideoMode(window_width, window_height, 32), "Gra", style);
     game_window.setFramerateLimit(60);
     game_window.setVerticalSyncEnabled(true);
+    game_window.setMouseCursorVisible(false);
     level mapa(1);
     sf::View view(sf::FloatRect(0, 0, 1920, 1080));
     game_window.setView(view);
+    celownik cel;
 
     while(game_window.isOpen())
     {
@@ -102,6 +103,7 @@ void game::start(unsigned int window_width, unsigned int window_height, unsigned
         game_window.clear( sf::Color( 0, 0, 0 ) );
         mapa.draw(game_window);
         bohater.draw(game_window);
+        cel.draw(game_window, view_x);
         game_window.setView(view);
         game_window.display();
     }
