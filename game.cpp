@@ -61,24 +61,6 @@ void game::start(unsigned int window_width, unsigned int window_height, unsigned
             }
         }
 
-        if(bohater.x - view_x > 1000)
-        {
-            view.move(bohater.current_running_speed, 0);
-            view_x += bohater.current_running_speed;
-
-        }
-        if(bohater.x - mapa.middle_sprite_x >= 1920)
-            mapa.move_sprites_right();
-
-        if(bohater.x - view_x < 300)
-        {
-            view.move(bohater.current_running_speed, 0);
-            view_x += bohater.current_running_speed;
-        }
-        if(bohater.x - mapa.middle_sprite_x < 0)
-            mapa.move_sprites_left();
-
-
         if(space)
         {
             current_time = clock.getElapsedTime();
@@ -99,6 +81,23 @@ void game::start(unsigned int window_width, unsigned int window_height, unsigned
             current_time = clock.getElapsedTime();
             hamuj = bohater.hamuj(current_time - breaking_time);
         }
+
+        if(bohater.x - view_x > 1000)
+        {
+            mapa.parallax(bohater.current_running_speed);
+            view.move(bohater.current_running_speed, 0);
+            view_x += bohater.current_running_speed;
+        }
+
+
+        if(bohater.x - view_x < 300)
+        {
+            mapa.parallax(bohater.current_running_speed);
+            view.move(bohater.current_running_speed, 0);
+            view_x += bohater.current_running_speed;
+        }
+
+        mapa.move_sprites(bohater.x);
 
         game_window.clear( sf::Color( 0, 0, 0 ) );
         mapa.draw(game_window);

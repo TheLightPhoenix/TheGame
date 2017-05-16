@@ -5,6 +5,7 @@
 class level
 {
     public:
+    float sprite_1_x, sprite_2_x, sprite_3_x, sprite_4_x;
     int middle_sprite_x;
     private:
     sf::Texture *background_text;
@@ -14,8 +15,8 @@ class level
     level(int number);
     ~level();
     void draw(sf::RenderWindow &);
-    void move_sprites_right();
-    void move_sprites_left();
+    void parallax(float);
+    void move_sprites(float);
 
 };
 

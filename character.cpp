@@ -5,12 +5,12 @@ character::character()
     floor = 690;
     x = 500;
     y = floor;
-    running_speed = 17;
+    running_speed = 15;
     jump_speed = 50;
     current_jump_speed = 0;
     current_running_speed = 0;
     gravity = 120;
-    acceleration = 4;
+    acceleration = 5;
 
     jump_animation_counter = 0;
     idle_animation_counter = 0;

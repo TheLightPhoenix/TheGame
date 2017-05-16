@@ -2,7 +2,10 @@
 
 level::level(int number)
 {
-    middle_sprite_x = 0;
+    sprite_1_x = 0;
+    sprite_2_x = 0;
+    sprite_3_x = 0;
+    sprite_4_x = 0;
     if(number == 1)
     {
         background_text = new sf::Texture[5];
@@ -27,6 +30,9 @@ level::level(int number)
             background_sprite_right[i].setTexture(background_text[i]);
             background_sprite_right[i].setPosition(1920, 0);
         }
+
+        background_sprite_middle[0].setScale(1.1, 1);
+        background_sprite_middle[0].setPosition(-96, 0);
     }
 }
 
@@ -40,7 +46,8 @@ level::~level()
 
 void level::draw(sf::RenderWindow &game_window)
 {
-    for(int i = 0; i < 5; i++)
+    game_window.draw(background_sprite_middle[0]);
+    for(int i = 1; i < 5; i++)
     {
         game_window.draw(background_sprite_middle[i]);
         game_window.draw(background_sprite_left[i]);
@@ -48,24 +55,79 @@ void level::draw(sf::RenderWindow &game_window)
     }
 }
 
-void level::move_sprites_right()
+void level::move_sprites(float player_x)
 {
-    middle_sprite_x += 1920;
-    for(int i = 0; i < 5; i++)
+    if(player_x - sprite_1_x >= 1920)
     {
-        background_sprite_middle[i].move(1920, 0);
-        background_sprite_left[i].move(1920, 0);
-        background_sprite_right[i].move(1920, 0);
+        background_sprite_middle[1].move(1920, 0);
+        background_sprite_right[1].move(1920, 0);
+        background_sprite_left[1].move(1920, 0);
+        sprite_1_x += 1920;
+    }
+    if(player_x - sprite_2_x >= 1920)
+    {
+        background_sprite_middle[2].move(1920, 0);
+        background_sprite_right[2].move(1920, 0);
+        background_sprite_left[2].move(1920, 0);
+        sprite_2_x += 1920;
+    }
+    if(player_x - sprite_3_x >= 1920)
+    {
+        background_sprite_middle[3].move(1920, 0);
+        background_sprite_right[3].move(1920, 0);
+        background_sprite_left[3].move(1920, 0);
+        sprite_3_x += 1920;
+    }
+    if(player_x - sprite_4_x >= 1920)
+    {
+        background_sprite_middle[4].move(1920, 0);
+        background_sprite_right[4].move(1920, 0);
+        background_sprite_left[4].move(1920, 0);
+        sprite_4_x += 1920;
+    }
+    if(player_x - sprite_1_x <= 0)
+    {
+        background_sprite_middle[1].move(-1920, 0);
+        background_sprite_right[1].move(-1920, 0);
+        background_sprite_left[1].move(-1920, 0);
+        sprite_1_x -= 1920;
+    }
+    if(player_x - sprite_2_x <= 0)
+    {
+        background_sprite_middle[2].move(-1920, 0);
+        background_sprite_right[2].move(-1920, 0);
+        background_sprite_left[2].move(-1920, 0);
+        sprite_2_x -= 1920;
+    }
+    if(player_x - sprite_3_x <= 0)
+    {
+        background_sprite_middle[3].move(-1920, 0);
+        background_sprite_right[3].move(-1920, 0);
+        background_sprite_left[3].move(-1920, 0);
+        sprite_3_x -= 1920;
+    }
+    if(player_x - sprite_4_x <= 0)
+    {
+        background_sprite_middle[4].move(-1920, 0);
+        background_sprite_right[4].move(-1920, 0);
+        background_sprite_left[4].move(-1920, 0);
+        sprite_4_x -= 1920;
     }
 }
 
-void level::move_sprites_left()
+void level::parallax(float speed)
 {
-    middle_sprite_x -= 1920;
-    for(int i = 0; i < 5; i++)
-    {
-        background_sprite_middle[i].move(-1920, 0);
-        background_sprite_left[i].move(-1920, 0);
-        background_sprite_right[i].move(-1920, 0);
-    }
+    sprite_1_x += speed * 15 / 16;
+    sprite_2_x += speed * 7 / 8;
+    sprite_3_x += speed / 2;
+    background_sprite_middle[0].move(speed, 0);
+    background_sprite_middle[1].move(speed * 15 / 16, 0);
+    background_sprite_right[1].move(speed * 15 / 16, 0);
+    background_sprite_left[1].move(speed * 15 / 16, 0);
+    background_sprite_middle[2].move(speed * 7 / 8, 0);
+    background_sprite_right[2].move(speed * 7 / 8, 0);
+    background_sprite_left[2].move(speed * 7 / 8, 0);
+    background_sprite_middle[3].move(speed / 2, 0);
+    background_sprite_right[3].move(speed / 2, 0);
+    background_sprite_left[3].move(speed / 2, 0);
 }
