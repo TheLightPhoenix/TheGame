@@ -48,6 +48,11 @@ void game::start(unsigned int window_width, unsigned int window_height, unsigned
                 space = 1;
                 jump_start = clock.getElapsedTime();
             }
+            if( zdarzenie.type == sf::Event::KeyPressed && zdarzenie.key.code == sf::Keyboard::W && space == 0)
+            {
+                space = 1;
+                jump_start = clock.getElapsedTime();
+            }
             if( zdarzenie.type == sf::Event::KeyReleased && zdarzenie.key.code == sf::Keyboard::A && w_lewo)
             {
                 w_lewo = 0;
