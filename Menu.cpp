@@ -1,5 +1,5 @@
 #include "Menu.h"
-
+#include "game.h"
 int play = 0;
 
 Menu::Menu(float width, float height)
@@ -82,7 +82,9 @@ sf::RenderWindow window(sf::VideoMode(1920, 1080), "Menu");
 
             if(play==1)
             {
-                window.close();
+                play=0;
+                game gra;
+                gra.start(1920, 1080, 0);
             }
             else if(play==2)
             {

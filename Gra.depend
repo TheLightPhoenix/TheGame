@@ -525,41 +525,41 @@
 	<SFML/Graphics.hpp>
 	"game.h"
 
-1495663122 source:c:\users\kryst\desktop\projekt\gra\thegame\arrow.cpp
+1495670428 source:c:\users\kryst\desktop\projekt\gra\thegame\arrow.cpp
 	"arrow.h"
 
-1495663122 c:\users\kryst\desktop\projekt\gra\thegame\arrow.h
+1495670429 c:\users\kryst\desktop\projekt\gra\thegame\arrow.h
 	<SFML/Graphics.hpp>
 
-1495663130 source:c:\users\kryst\desktop\projekt\gra\thegame\celownik.cpp
+1495670436 source:c:\users\kryst\desktop\projekt\gra\thegame\celownik.cpp
 	"celownik.h"
 
-1495663130 c:\users\kryst\desktop\projekt\gra\thegame\celownik.h
+1495670436 c:\users\kryst\desktop\projekt\gra\thegame\celownik.h
 	<SFML/Graphics.hpp>
 
-1495663130 source:c:\users\kryst\desktop\projekt\gra\thegame\character.cpp
+1495670436 source:c:\users\kryst\desktop\projekt\gra\thegame\character.cpp
 	"character.h"
 
-1495663130 c:\users\kryst\desktop\projekt\gra\thegame\character.h
+1495670436 c:\users\kryst\desktop\projekt\gra\thegame\character.h
 	<SFML/Graphics.hpp>
 
-1495663130 source:c:\users\kryst\desktop\projekt\gra\thegame\game.cpp
+1495670436 source:c:\users\kryst\desktop\projekt\gra\thegame\game.cpp
 	"game.h"
 
-1495663574 c:\users\kryst\desktop\projekt\gra\thegame\game.h
+1495670436 c:\users\kryst\desktop\projekt\gra\thegame\game.h
 	<SFML/Graphics.hpp>
 	"character.h"
 	"level.h"
 	"celownik.h"
 	"Menu.h"
 
-1495663130 c:\users\kryst\desktop\projekt\gra\thegame\level.h
+1495670436 c:\users\kryst\desktop\projekt\gra\thegame\level.h
 	<SFML/Graphics.hpp>
 
-1495663130 source:c:\users\kryst\desktop\projekt\gra\thegame\level.cpp
+1495670436 source:c:\users\kryst\desktop\projekt\gra\thegame\level.cpp
 	"level.h"
 
-1495663130 source:c:\users\kryst\desktop\projekt\gra\thegame\main.cpp
+1495671104 source:c:\users\kryst\desktop\projekt\gra\thegame\main.cpp
 	<SFML/Graphics.hpp>
 	"game.h"
 
@@ -951,6 +951,6 @@
 	<string>
 	<vector>
 
-1495663971 c:\users\kryst\desktop\projekt\gra\thegame\menu.h
+1495668348 c:\users\kryst\desktop\projekt\gra\thegame\menu.h
 	"SFML/Graphics.hpp"
 
