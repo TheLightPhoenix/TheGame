@@ -488,3 +488,40 @@
 1494938984 c:\users\alienware\desktop\gra inpg\arrow.h
 	<SFML/Graphics.hpp>
 
+1494966065 source:c:\users\janko\desktop\github\repozytorium\thegame\arrow.cpp
+	"arrow.h"
+
+1494966065 c:\users\janko\desktop\github\repozytorium\thegame\arrow.h
+	<SFML/Graphics.hpp>
+
+1494966065 source:c:\users\janko\desktop\github\repozytorium\thegame\celownik.cpp
+	"celownik.h"
+
+1494966065 c:\users\janko\desktop\github\repozytorium\thegame\celownik.h
+	<SFML/Graphics.hpp>
+
+1494936051 source:c:\users\janko\desktop\github\repozytorium\thegame\character.cpp
+	"character.h"
+
+1494880647 c:\users\janko\desktop\github\repozytorium\thegame\character.h
+	<SFML/Graphics.hpp>
+
+1494936051 source:c:\users\janko\desktop\github\repozytorium\thegame\game.cpp
+	"game.h"
+
+1494936051 c:\users\janko\desktop\github\repozytorium\thegame\game.h
+	<SFML/Graphics.hpp>
+	"character.h"
+	"level.h"
+	"celownik.h"
+
+1494936051 c:\users\janko\desktop\github\repozytorium\thegame\level.h
+	<SFML/Graphics.hpp>
+
+1494936051 source:c:\users\janko\desktop\github\repozytorium\thegame\level.cpp
+	"level.h"
+
+1494791465 source:c:\users\janko\desktop\github\repozytorium\thegame\main.cpp
+	<SFML/Graphics.hpp>
+	"game.h"
+
