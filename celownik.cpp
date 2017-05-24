@@ -14,7 +14,13 @@ celownik::celownik()
 
 void celownik::draw(sf::RenderWindow &game_window, float view_x)
 {
+    #ifdef KAMERKA
+    cam.update();
+    position.x = cam.getPosition().x;
+    position.y = cam.getPosition().y;
+    #else
     position = sf::Mouse::getPosition();
+    #endif
     cel_sprite.setPosition(position.x + view_x, position.y);
     cel_position.x = position.x + view_x;
     cel_position.y = position.y;

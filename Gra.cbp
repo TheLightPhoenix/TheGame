@@ -15,12 +15,12 @@
 					<Add option="-g" />
 				</Compiler>
 				<Linker>
-					<Add library="../../../../Projekty/Biblioteki/SFML-2.4.2/lib/libsfml-audio-d.a" />
-					<Add library="../../../../Projekty/Biblioteki/SFML-2.4.2/lib/libsfml-graphics-d.a" />
-					<Add library="../../../../Projekty/Biblioteki/SFML-2.4.2/lib/libsfml-main-d.a" />
-					<Add library="../../../../Projekty/Biblioteki/SFML-2.4.2/lib/libsfml-network-d.a" />
-					<Add library="../../../../Projekty/Biblioteki/SFML-2.4.2/lib/libsfml-system-d.a" />
-					<Add library="../../../../Projekty/Biblioteki/SFML-2.4.2/lib/libsfml-window-d.a" />
+					<Add library="D:/C++/Biblioteki/SFML2.4/SFML-2.4.2/lib/libsfml-audio.a" />
+					<Add library="D:/C++/Biblioteki/SFML2.4/SFML-2.4.2/lib/libsfml-graphics.a" />
+					<Add library="D:/C++/Biblioteki/SFML2.4/SFML-2.4.2/lib/libsfml-main.a" />
+					<Add library="D:/C++/Biblioteki/SFML2.4/SFML-2.4.2/lib/libsfml-network.a" />
+					<Add library="D:/C++/Biblioteki/SFML2.4/SFML-2.4.2/lib/libsfml-system.a" />
+					<Add library="D:/C++/Biblioteki/SFML2.4/SFML-2.4.2/lib/libsfml-window.a" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -33,23 +33,22 @@
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
-					<Add library="../../../../Projekty/Biblioteki/SFML-2.4.2/lib/libsfml-audio.a" />
-					<Add library="../../../../Projekty/Biblioteki/SFML-2.4.2/lib/libsfml-graphics.a" />
-					<Add library="../../../../Projekty/Biblioteki/SFML-2.4.2/lib/libsfml-main.a" />
-					<Add library="../../../../Projekty/Biblioteki/SFML-2.4.2/lib/libsfml-network.a" />
-					<Add library="../../../../Projekty/Biblioteki/SFML-2.4.2/lib/libsfml-system.a" />
-					<Add library="../../../../Projekty/Biblioteki/SFML-2.4.2/lib/libsfml-window.a" />
+					<Add library="D:/C++/Biblioteki/SFML2.4/SFML-2.4.2/lib/libsfml-audio.a" />
+					<Add library="D:/C++/Biblioteki/SFML2.4/SFML-2.4.2/lib/libsfml-graphics.a" />
+					<Add library="D:/C++/Biblioteki/SFML2.4/SFML-2.4.2/lib/libsfml-main.a" />
+					<Add library="D:/C++/Biblioteki/SFML2.4/SFML-2.4.2/lib/libsfml-system.a" />
+					<Add library="D:/C++/Biblioteki/SFML2.4/SFML-2.4.2/lib/libsfml-window.a" />
 				</Linker>
 			</Target>
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
-			<Add directory="../../../../Projekty/Biblioteki/SFML-2.4.2/include" />
+			<Add directory="D:/C++/Biblioteki/SFML2.4/SFML-2.4.2/include" />
 		</Compiler>
 		<Linker>
 			<Add option="-static" />
 			<Add option="-static-libgcc" />
-			<Add directory="../../../../Projekty/Biblioteki/SFML-2.4.2/lib" />
+			<Add directory="D:/C++/Biblioteki/SFML2.4/SFML-2.4.2/lib" />
 		</Linker>
 		<Unit filename="arrow.cpp" />
 		<Unit filename="arrow.h" />
