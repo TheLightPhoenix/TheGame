@@ -525,40 +525,40 @@
 	<SFML/Graphics.hpp>
 	"game.h"
 
-1495061876 source:c:\users\kryst\desktop\projekt\gra\thegame\arrow.cpp
+1495663122 source:c:\users\kryst\desktop\projekt\gra\thegame\arrow.cpp
 	"arrow.h"
 
-1495061876 c:\users\kryst\desktop\projekt\gra\thegame\arrow.h
+1495663122 c:\users\kryst\desktop\projekt\gra\thegame\arrow.h
 	<SFML/Graphics.hpp>
 
-1495061886 source:c:\users\kryst\desktop\projekt\gra\thegame\celownik.cpp
+1495663130 source:c:\users\kryst\desktop\projekt\gra\thegame\celownik.cpp
 	"celownik.h"
 
-1495061886 c:\users\kryst\desktop\projekt\gra\thegame\celownik.h
+1495663130 c:\users\kryst\desktop\projekt\gra\thegame\celownik.h
 	<SFML/Graphics.hpp>
 
-1495061886 source:c:\users\kryst\desktop\projekt\gra\thegame\character.cpp
+1495663130 source:c:\users\kryst\desktop\projekt\gra\thegame\character.cpp
 	"character.h"
 
-1495061886 c:\users\kryst\desktop\projekt\gra\thegame\character.h
+1495663130 c:\users\kryst\desktop\projekt\gra\thegame\character.h
 	<SFML/Graphics.hpp>
 
-1495061886 source:c:\users\kryst\desktop\projekt\gra\thegame\game.cpp
+1495663130 source:c:\users\kryst\desktop\projekt\gra\thegame\game.cpp
 	"game.h"
 
-1495061886 c:\users\kryst\desktop\projekt\gra\thegame\game.h
+1495663130 c:\users\kryst\desktop\projekt\gra\thegame\game.h
 	<SFML/Graphics.hpp>
 	"character.h"
 	"level.h"
 	"celownik.h"
 
-1495061886 c:\users\kryst\desktop\projekt\gra\thegame\level.h
+1495663130 c:\users\kryst\desktop\projekt\gra\thegame\level.h
 	<SFML/Graphics.hpp>
 
-1495061886 source:c:\users\kryst\desktop\projekt\gra\thegame\level.cpp
+1495663130 source:c:\users\kryst\desktop\projekt\gra\thegame\level.cpp
 	"level.h"
 
-1495061886 source:c:\users\kryst\desktop\projekt\gra\thegame\main.cpp
+1495663130 source:c:\users\kryst\desktop\projekt\gra\thegame\main.cpp
 	<SFML/Graphics.hpp>
 	"game.h"
 
