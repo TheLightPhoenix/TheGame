@@ -8,6 +8,7 @@ celownik::celownik()
     cel_position.y = position.y;
     cel_text.loadFromFile("celownik.png");
     cel_sprite.setTexture(cel_text);
+    cel_sprite.setOrigin(85, 85);
     cel_sprite.setPosition(position.x, position.y);
 }
 

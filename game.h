@@ -4,7 +4,7 @@
 #include "character.h"
 #include "level.h"
 #include "celownik.h"
-
+#include "Menu.h"
 
 class game
 {
