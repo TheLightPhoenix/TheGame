@@ -22,6 +22,18 @@ void game::start(unsigned int window_width, unsigned int window_height, unsigned
     game_window.setView(view);
     celownik cel;
 
+    sf::Texture grass;
+    grass.loadFromFile(".\\Backgrounds\\Background 01ORIGINAL\\PARALLAX\\layer_05_1920 x 1080.png");
+    sf::Sprite trawa_left;
+    sf::Sprite trawa_middle;
+    sf::Sprite trawa_right;
+    trawa_left.setTexture(grass);
+    trawa_middle.setTexture(grass);
+    trawa_right.setTexture(grass);
+    trawa_left.setPosition(-1920, 0);
+    trawa_middle.setPosition(0, 0);
+    trawa_right.setPosition(1920, 0);
+
     while(game_window.isOpen())
     {
         sf::Event zdarzenie;
@@ -105,9 +117,26 @@ void game::start(unsigned int window_width, unsigned int window_height, unsigned
 
         mapa.move_sprites(bohater.x);
 
+        if(bohater.x - trawa_middle.getPosition().x >= 1920)
+        {
+            trawa_left.move(1920, 0);
+            trawa_right.move(1920, 0);
+            trawa_middle.move(1920, 0);
+        }
+
+        if(bohater.x - trawa_middle.getPosition().x <= 0)
+        {
+            trawa_left.move(-1920, 0);
+            trawa_right.move(-1920, 0);
+            trawa_middle.move(-1920, 0);
+        }
+
         game_window.clear( sf::Color( 0, 0, 0 ) );
         mapa.draw(game_window);
         bohater.draw(game_window);
+        game_window.draw(trawa_left);
+        game_window.draw(trawa_middle);
+        game_window.draw(trawa_right);
         cel.draw(game_window, view_x);
         game_window.setView(view);
         game_window.display();

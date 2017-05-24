@@ -9,17 +9,17 @@ level::level(int number)
     if(number == 1)
     {
         background_text = new sf::Texture[5];
-        background_text[0].loadFromFile(".\\Backgrounds\\Background 01\\PARALLAX\\layer_01_1920 x 1080.png");
-        background_text[1].loadFromFile(".\\Backgrounds\\Background 01\\PARALLAX\\layer_02_1920 x 1080.png");
-        background_text[2].loadFromFile(".\\Backgrounds\\Background 01\\PARALLAX\\layer_03_1920 x 1080.png");
-        background_text[3].loadFromFile(".\\Backgrounds\\Background 01\\PARALLAX\\layer_04_1920 x 1080.png");
-        background_text[4].loadFromFile(".\\Backgrounds\\Background 01\\PARALLAX\\layer_05_1920 x 1080.png");
+        background_text[0].loadFromFile(".\\Backgrounds\\Background 01ORIGINAL\\PARALLAX\\layer_01_1920 x 1080.png");
+        background_text[1].loadFromFile(".\\Backgrounds\\Background 01ORIGINAL\\PARALLAX\\layer_02_1920 x 1080.png");
+        background_text[2].loadFromFile(".\\Backgrounds\\Background 01ORIGINAL\\PARALLAX\\layer_03_1920 x 1080.png");
+        background_text[3].loadFromFile(".\\Backgrounds\\Background 01ORIGINAL\\PARALLAX\\layer_04_1920 x 1080.png");
+        //background_text[4].loadFromFile(".\\Backgrounds\\Background 01ORIGINAL\\PARALLAX\\layer_05_1920 x 1080.png");
 
-        background_sprite_middle = new sf::Sprite[5];
-        background_sprite_left = new sf::Sprite[5];
-        background_sprite_right = new sf::Sprite[5];
+        background_sprite_middle = new sf::Sprite[4];
+        background_sprite_left = new sf::Sprite[4];
+        background_sprite_right = new sf::Sprite[4];
 
-        for(int i = 0; i < 5; i++)
+        for(int i = 0; i < 4; i++)
         {
             background_sprite_middle[i].setTexture(background_text[i]);
             background_sprite_middle[i].setPosition(0, 0);
@@ -47,7 +47,7 @@ level::~level()
 void level::draw(sf::RenderWindow &game_window)
 {
     game_window.draw(background_sprite_middle[0]);
-    for(int i = 1; i < 5; i++)
+    for(int i = 1; i < 4; i++)
     {
         game_window.draw(background_sprite_middle[i]);
         game_window.draw(background_sprite_left[i]);
@@ -78,13 +78,13 @@ void level::move_sprites(float player_x)
         background_sprite_left[3].move(1920, 0);
         sprite_3_x += 1920;
     }
-    if(player_x - sprite_4_x >= 1920)
-    {
-        background_sprite_middle[4].move(1920, 0);
-        background_sprite_right[4].move(1920, 0);
-        background_sprite_left[4].move(1920, 0);
-        sprite_4_x += 1920;
-    }
+   // if(player_x - sprite_4_x >= 1920)
+    //{
+    //    background_sprite_middle[4].move(1920, 0);
+    //    background_sprite_right[4].move(1920, 0);
+    //    background_sprite_left[4].move(1920, 0);
+    //    sprite_4_x += 1920;
+   // }
     if(player_x - sprite_1_x <= 0)
     {
         background_sprite_middle[1].move(-1920, 0);
@@ -106,13 +106,13 @@ void level::move_sprites(float player_x)
         background_sprite_left[3].move(-1920, 0);
         sprite_3_x -= 1920;
     }
-    if(player_x - sprite_4_x <= 0)
-    {
-        background_sprite_middle[4].move(-1920, 0);
-        background_sprite_right[4].move(-1920, 0);
-        background_sprite_left[4].move(-1920, 0);
-        sprite_4_x -= 1920;
-    }
+  //  if(player_x - sprite_4_x <= 0)
+   // {
+   //     background_sprite_middle[4].move(-1920, 0);
+   //     background_sprite_right[4].move(-1920, 0);
+  //      background_sprite_left[4].move(-1920, 0);
+  //      sprite_4_x -= 1920;
+  //  }
 }
 
 void level::parallax(float speed)
