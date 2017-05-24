@@ -546,11 +546,12 @@
 1495663130 source:c:\users\kryst\desktop\projekt\gra\thegame\game.cpp
 	"game.h"
 
-1495663130 c:\users\kryst\desktop\projekt\gra\thegame\game.h
+1495663574 c:\users\kryst\desktop\projekt\gra\thegame\game.h
 	<SFML/Graphics.hpp>
 	"character.h"
 	"level.h"
 	"celownik.h"
+	"Menu.h"
 
 1495663130 c:\users\kryst\desktop\projekt\gra\thegame\level.h
 	<SFML/Graphics.hpp>
@@ -949,4 +950,7 @@
 	<SFML/System/String.hpp>
 	<string>
 	<vector>
+
+1495663971 c:\users\kryst\desktop\projekt\gra\thegame\menu.h
+	"SFML/Graphics.hpp"
 

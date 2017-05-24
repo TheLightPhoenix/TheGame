@@ -1,5 +1,7 @@
 #ifndef MENU_H
 #define MENU_H
+#endif // MENU_H
+
 #include "SFML/Graphics.hpp"
 
 #define MAX_NUMBER_OF_ITEMS 3
