@@ -1,7 +1,4 @@
-#ifndef MENU_H
-#define MENU_H
-#endif // MENU_H
-
+#pragma once
 #include "SFML/Graphics.hpp"
 
 #define MAX_NUMBER_OF_ITEMS 3
@@ -15,6 +12,7 @@ public:
 	void draw(sf::RenderWindow &window);
 	void MoveUp();
 	void MoveDown();
+	void start();
 	int GetPressedItem() { return selectedItemIndex; }
 
 private:
