@@ -956,10 +956,10 @@
 1495066543 d:\agh\ii\inpg\thegame\arrow.h
 	<SFML/Graphics.hpp>
 
-1495661374 source:d:\agh\ii\inpg\thegame\celownik.cpp
+1495662377 source:d:\agh\ii\inpg\thegame\celownik.cpp
 	"celownik.h"
 
-1495661458 d:\agh\ii\inpg\thegame\celownik.h
+1495662176 d:\agh\ii\inpg\thegame\celownik.h
 	<SFML/Graphics.hpp>
 	"kamerka.h"
 
@@ -1380,7 +1380,7 @@
 	<opencv2/highgui/highgui.hpp>
 	"opencv2/imgproc/imgproc.hpp"
 
-1495661154 source:d:\agh\ii\inpg\thegame\kamerka.cpp
+1495662268 source:d:\agh\ii\inpg\thegame\kamerka.cpp
 	"kamerka.h"
 	<iostream>
 	<Windows.h>

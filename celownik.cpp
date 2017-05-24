@@ -16,8 +16,8 @@ void celownik::draw(sf::RenderWindow &game_window, float view_x)
 {
     #ifdef KAMERKA
     cam.update();
-    position.x = cam.getPosition().x;
-    position.y = cam.getPosition().y;
+    position.x = cam.getPosition().x*2+300;
+    position.y = cam.getPosition().y*2+300;
     #else
     position = sf::Mouse::getPosition();
     #endif
