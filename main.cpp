@@ -6,10 +6,10 @@
 int main()
 {
 
-
+    sf::RenderWindow window(sf::VideoMode(1920, 1080), "Menu", sf::Style::Fullscreen);
 
     Menu menu(1920, 1080);
 
-	menu.start();
+	menu.start(window);
     return 0;
 }
