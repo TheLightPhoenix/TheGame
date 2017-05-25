@@ -60,13 +60,14 @@ void Menu::MoveDown()
 	}
 }
 
-void Menu::start()
+void Menu::start(sf::RenderWindow &window)
 {
 
-sf::RenderWindow window(sf::VideoMode(1920, 1080), "Menu", sf::Style::Fullscreen);
+
 
 	Menu menu(window.getSize().x, window.getSize().y);
-
+	sf::View view(sf::FloatRect(0, 0, 1920, 1080));
+    window.setView(view);
 	int play=0;
 
 	while (window.isOpen())
