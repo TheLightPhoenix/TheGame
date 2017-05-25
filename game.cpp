@@ -41,7 +41,11 @@ void game::start(sf::RenderWindow &game_window)
             if( zdarzenie.type == sf::Event::Closed )
                 game_window.close();
             if( zdarzenie.type == sf::Event::KeyPressed && zdarzenie.key.code == sf::Keyboard::Escape )
-                game_window.close();
+            {
+
+                Menu menu(1920, 1080);
+                menu.start(game_window);
+            }
             if( zdarzenie.type == sf::Event::KeyPressed && zdarzenie.key.code == sf::Keyboard::D)
             {
                 w_prawo = 1;
