@@ -63,7 +63,7 @@ void Menu::MoveDown()
 void Menu::start()
 {
 
-sf::RenderWindow window(sf::VideoMode(1920, 1080), "Menu");
+sf::RenderWindow window(sf::VideoMode(1920, 1080), "Menu", sf::Style::Fullscreen);
 
 	Menu menu(window.getSize().x, window.getSize().y);
 
@@ -84,7 +84,7 @@ sf::RenderWindow window(sf::VideoMode(1920, 1080), "Menu");
             {
                 play=0;
                 game gra;
-                gra.start(1920, 1080, 0);
+                gra.start(window);
             }
             else if(play==2)
             {

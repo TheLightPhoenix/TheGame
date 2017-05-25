@@ -9,11 +9,10 @@ game::game()
     hamuj = 0;
 }
 
-void game::start(unsigned int window_width, unsigned int window_height, unsigned int style)
+void game::start(sf::RenderWindow &game_window)
 {
     float view_x = 0;
     character bohater;
-    game_window.create(sf::VideoMode(window_width, window_height, 32), "Gra", style);
     game_window.setFramerateLimit(60);
     game_window.setVerticalSyncEnabled(true);
     game_window.setMouseCursorVisible(false);
