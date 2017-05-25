@@ -488,14 +488,15 @@
 1494938984 c:\users\alienware\desktop\gra inpg\arrow.h
 	<SFML/Graphics.hpp>
 
-<<<<<<< HEAD
+1486739998 D
+
 1494966065 source:c:\users\janko\desktop\github\repozytorium\thegame\arrow.cpp
 	"arrow.h"
 
 1494966065 c:\users\janko\desktop\github\repozytorium\thegame\arrow.h
 	<SFML/Graphics.hpp>
 
-1494966065 source:c:\users\janko\desktop\github\repozytorium\thegame\celownik.cpp
+1495656985 source:c:\users\janko\desktop\github\repozytorium\thegame\celownik.cpp
 	"celownik.h"
 
 1494966065 c:\users\janko\desktop\github\repozytorium\thegame\celownik.h
@@ -507,11 +508,16 @@
 1494880647 c:\users\janko\desktop\github\repozytorium\thegame\character.h
 	<SFML/Graphics.hpp>
 
-1494936051 source:c:\users\janko\desktop\github\repozytorium\thegame\game.cpp
+1495656985 source:c:\users\janko\desktop\github\repozytorium\thegame\game.cpp
 	"game.h"
 
-1494936051 c:\users\janko\desktop\github\repozytorium\thegame\game.h
-=======
+1495656985 c:\users\janko\desktop\github\repozytorium\thegame\game.h
+	<SFML/Graphics.hpp>
+	"character.h"
+	"level.h"
+	"celownik.h"
+	"Menu.h"
+
 1494938984 source:c:\users\alienware\giera\thegame\arrow.cpp
 	"arrow.h"
 
@@ -534,24 +540,25 @@
 	"game.h"
 
 1494935589 c:\users\alienware\giera\thegame\game.h
->>>>>>> 11e01ece4c255d593ee9f17801ca2011ee85bf44
+
+1495668348 01ece4c255d593ee9f17801ca2011ee85bf44
 	<SFML/Graphics.hpp>
 	"character.h"
 	"level.h"
 	"celownik.h"
 
-<<<<<<< HEAD
 1494936051 c:\users\janko\desktop\github\repozytorium\thegame\level.h
 	<SFML/Graphics.hpp>
 
-1494936051 source:c:\users\janko\desktop\github\repozytorium\thegame\level.cpp
+1495656985 source:c:\users\janko\desktop\github\repozytorium\thegame\level.cpp
 	"level.h"
 
-1494791465 source:c:\users\janko\desktop\github\repozytorium\thegame\main.cpp
+1495730330 source:c:\users\janko\desktop\github\repozytorium\thegame\main.cpp
 	<SFML/Graphics.hpp>
 	"game.h"
 
-=======
+1494684978 hics.hpp>
+
 1494933117 c:\users\alienware\giera\thegame\level.h
 	<SFML/Graphics.hpp>
 
@@ -988,7 +995,6 @@
 	<string>
 	<vector>
 
-<<<<<<< HEAD
 1494967000 source:d:\dokumenty\github\thegame\arrow.cpp
 	"arrow.h"
 
@@ -1413,9 +1419,12 @@
 1494684978 source:d:\dokumenty\github\thegame\main.cpp
 	<SFML/Graphics.hpp>
 	"game.h"
-=======
+
 1495668348 c:\users\kryst\desktop\projekt\gra\thegame\menu.h
 	"SFML/Graphics.hpp"
->>>>>>> 2b95af6a6acfec5e8f516ebefcddde94ba48bb58
 
->>>>>>> 11e01ece4c255d593ee9f17801ca2011ee85bf44
+1495668348 5af6a6acfec5e8f516ebefcddde94ba48bb58
+
+1495730330 c:\users\janko\desktop\github\repozytorium\thegame\menu.h
+	"SFML/Graphics.hpp"
+
