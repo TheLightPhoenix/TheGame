@@ -5,7 +5,11 @@
 
 int main()
 {
-    game gra;
-    gra.start(1920, 1080, 0);
+
+
+
+    Menu menu(1920, 1080);
+
+	menu.start();
     return 0;
 }
