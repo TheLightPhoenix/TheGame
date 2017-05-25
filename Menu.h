@@ -12,7 +12,7 @@ public:
 	void draw(sf::RenderWindow &window);
 	void MoveUp();
 	void MoveDown();
-	void start();
+	void start(sf::RenderWindow &window);
 	int GetPressedItem() { return selectedItemIndex; }
 
 private:
