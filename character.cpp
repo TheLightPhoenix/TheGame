@@ -2,7 +2,7 @@
 
 character::character()
 {
-    floor = 690;
+    floor = 620;
     x = 500;
     y = floor;
     running_speed = 15;
