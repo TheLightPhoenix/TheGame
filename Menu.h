@@ -1,6 +1,5 @@
 #ifndef MENU_H
 #define MENU_H
-#endif // MENU_H
 
 #include "SFML/Graphics.hpp"
 
@@ -15,6 +14,8 @@ public:
 	void draw(sf::RenderWindow &window);
 	void MoveUp();
 	void MoveDown();
+
+	void start(sf::RenderWindow &window);
 	int GetPressedItem() { return selectedItemIndex; }
 
 private:
@@ -23,3 +24,5 @@ private:
 	sf::Text menu[MAX_NUMBER_OF_ITEMS];
 
 };
+
+#endif // MENU_H
