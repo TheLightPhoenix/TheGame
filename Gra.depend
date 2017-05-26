@@ -956,10 +956,10 @@
 1495066543 d:\agh\ii\inpg\thegame\arrow.h
 	<SFML/Graphics.hpp>
 
-1495662377 source:d:\agh\ii\inpg\thegame\celownik.cpp
+1495664490 source:d:\agh\ii\inpg\thegame\celownik.cpp
 	"celownik.h"
 
-1495662176 d:\agh\ii\inpg\thegame\celownik.h
+1495819600 d:\agh\ii\inpg\thegame\celownik.h
 	<SFML/Graphics.hpp>
 	"kamerka.h"
 
@@ -969,10 +969,10 @@
 1495658011 d:\agh\ii\inpg\thegame\character.h
 	<SFML/Graphics.hpp>
 
-1495066543 source:d:\agh\ii\inpg\thegame\game.cpp
+1495664490 source:d:\agh\ii\inpg\thegame\game.cpp
 	"game.h"
 
-1495066543 d:\agh\ii\inpg\thegame\game.h
+1495664490 d:\agh\ii\inpg\thegame\game.h
 	<SFML/Graphics.hpp>
 	"character.h"
 	"level.h"
@@ -981,10 +981,10 @@
 1495066543 d:\agh\ii\inpg\thegame\level.h
 	<SFML/Graphics.hpp>
 
-1495066543 source:d:\agh\ii\inpg\thegame\level.cpp
+1495664490 source:d:\agh\ii\inpg\thegame\level.cpp
 	"level.h"
 
-1495658047 source:d:\agh\ii\inpg\thegame\main.cpp
+1495664490 source:d:\agh\ii\inpg\thegame\main.cpp
 	<SFML/Graphics.hpp>
 	"game.h"
 
@@ -1376,11 +1376,11 @@
 	<string>
 	<vector>
 
-1495661047 d:\agh\ii\inpg\thegame\kamerka.h
+1495664490 d:\agh\ii\inpg\thegame\kamerka.h
 	<opencv2/highgui/highgui.hpp>
 	"opencv2/imgproc/imgproc.hpp"
 
-1495662268 source:d:\agh\ii\inpg\thegame\kamerka.cpp
+1495664490 source:d:\agh\ii\inpg\thegame\kamerka.cpp
 	"kamerka.h"
 	<iostream>
 	<Windows.h>

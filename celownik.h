@@ -2,7 +2,7 @@
 #define CELOWNIK_H
 #include <SFML/Graphics.hpp>
 
-#define KAMERKA
+//#define KAMERKA
 
 #ifdef KAMERKA
 #include "kamerka.h"

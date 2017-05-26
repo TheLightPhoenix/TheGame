@@ -58,6 +58,8 @@
 		<Unit filename="character.h" />
 		<Unit filename="game.cpp" />
 		<Unit filename="game.h" />
+		<Unit filename="kamerka.cpp" />
+		<Unit filename="kamerka.h" />
 		<Unit filename="level.cpp" />
 		<Unit filename="level.h" />
 		<Unit filename="main.cpp" />

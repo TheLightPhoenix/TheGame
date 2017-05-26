@@ -6,6 +6,6 @@
 int main()
 {
     game gra;
-    gra.start(1280, 720, 0);
+    gra.start(1366, 768, 0);
     return 0;
 }
