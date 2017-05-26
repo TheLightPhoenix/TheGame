@@ -5,13 +5,12 @@
 class arrow
 {
     public:
-    sf::Texture arrow_text;
-    sf::Sprite arrow_sprite;
-    sf::Vector2f position;
-    float angle;
+        sf::Texture arrow_text;
+        sf::Sprite arrow_sprite;
+        sf::Vector2f position;
+        float angle;
 
-
-    arrow();
+        arrow();
 };
 
 

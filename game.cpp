@@ -1,6 +1,5 @@
 #include "game.h"
 
-
 game::game()
 {
     w_prawo = 0;

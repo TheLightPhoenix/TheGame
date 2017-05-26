@@ -16,6 +16,7 @@ class Kamerka
         cv::Point srodek;
         cv::VideoCapture capture;
         char m;
+
     public:
         Kamerka();
         ~Kamerka();

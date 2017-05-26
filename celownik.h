@@ -21,8 +21,8 @@ class celownik
         #ifdef KAMERKA
         Kamerka cam;
         #endif // KAMERKA
-    public:
 
+    public:
         celownik();
         void draw(sf::RenderWindow &, float);
 };

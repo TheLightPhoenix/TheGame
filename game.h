@@ -8,16 +8,15 @@
 
 class game
 {
-    sf::Clock clock;
-    sf::Time jump_start, jump_on_air, running_right_start, running_left_start, current_time, breaking_time;
-
-    bool w_prawo, w_lewo, space, hamuj;
-
-    sf::RenderWindow game_window;
+    private:
+        sf::Clock clock;
+        sf::Time jump_start, jump_on_air, running_right_start, running_left_start, current_time, breaking_time;
+        bool w_prawo, w_lewo, space, hamuj;
+        sf::RenderWindow game_window;
 
     public:
-    game();
-    void start(unsigned int window_width, unsigned int window_height, unsigned int style);
+        game();
+        void start(unsigned int window_width, unsigned int window_height, unsigned int style);
 };
 
 
