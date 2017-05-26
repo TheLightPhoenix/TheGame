@@ -15,7 +15,7 @@ celownik::celownik()
 void celownik::draw(sf::RenderWindow &game_window, float view_x)
 {
     #ifdef KAMERKA
-    cam.update();
+    //cam.update();
     position.x = cam.getPosition().x*2+300;
     position.y = cam.getPosition().y*2+300;
     #else

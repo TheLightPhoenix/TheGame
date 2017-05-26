@@ -33,7 +33,15 @@ Kamerka::Kamerka()
     thres = 20;
     minR = 10;
     maxR = 36;
+}
 
+Kamerka::~Kamerka()
+{
+    capture.release();
+}
+
+void Kamerka::update()
+{
     if(wyswietlanie)
     {
         for ( int i = 0; i < 5; i++ )
@@ -45,15 +53,8 @@ Kamerka::Kamerka()
         createTrackbar("minR", "Okregi", &minR, 100);
         createTrackbar("maxR", "Okregi", &maxR, 100);
     }
-}
-
-Kamerka::~Kamerka()
-{
-    capture.release();
-}
-
-void Kamerka::update()
-{
+    while(waitKey(10) != 27)
+    {
     capture >> frame;
     flip(frame, img,1);
     img.copyTo(src);
@@ -124,7 +125,8 @@ void Kamerka::update()
         putText( img, s, Point(50, 50), CV_FONT_HERSHEY_COMPLEX, 1, Scalar(20, 40, 80), 3, 8 );
         drawContours( drawing,  contours, i_cont, Scalar(125, 125, 250), 2 );
     }
-    cvtColor( src, src_gray, CV_BGR2GRAY );
+
+    /*cvtColor( src, src_gray, CV_BGR2GRAY );
 
     GaussianBlur( src_gray, src_gray, Size(9, 9), 2, 2 );
 
@@ -141,7 +143,7 @@ void Kamerka::update()
         circle( src, center, 3, Scalar(0,255,0), -1, 8, 0 );
         // circle outline
         circle( src, center, radius, Scalar(0,0,255), 3, 8, 0 );
-    }
+    }*/
 
     kulka = Mat::zeros( img.size(), CV_8UC3 );
     circle(kulka, srodek, 3, Scalar(255, 0, 0));
@@ -155,5 +157,6 @@ void Kamerka::update()
         imshow(window_name[2], src_gray);
         imshow(window_name[3], kulka);
         imshow(window_name[4], src);
+    }
     }
 }

@@ -2,7 +2,7 @@
 #define CELOWNIK_H
 #include <SFML/Graphics.hpp>
 
-//#define KAMERKA
+#define KAMERKA
 
 #ifdef KAMERKA
 #include "kamerka.h"
@@ -18,11 +18,11 @@ class celownik
         sf::Sprite cel_sprite;
         float x_0;
 
+    public:
         #ifdef KAMERKA
         Kamerka cam;
         #endif // KAMERKA
 
-    public:
         celownik();
         void draw(sf::RenderWindow &, float);
 };

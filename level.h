@@ -14,6 +14,7 @@ class level
 
         level(int number);
         ~level();
+
         void draw(sf::RenderWindow &);
         void parallax(float);
         void move_sprites(float);

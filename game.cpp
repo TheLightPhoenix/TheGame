@@ -1,4 +1,8 @@
 #include "game.h"
+#include <thread>
+#include <iostream>
+
+using namespace std;
 
 game::game()
 {
@@ -13,13 +17,16 @@ void game::start(unsigned int window_width, unsigned int window_height, unsigned
     float view_x = 0;
     character bohater;
     game_window.create(sf::VideoMode(window_width, window_height, 32), "Gra", style);
-    game_window.setFramerateLimit(60);
+    //game_window.setFramerateLimit(60);
     game_window.setVerticalSyncEnabled(true);
     game_window.setMouseCursorVisible(false);
     level mapa(1);
     sf::View view(sf::FloatRect(0, 0, 1920, 1080));
     game_window.setView(view);
     celownik cel;
+
+    thread tr = cel.cam.spawn();
+    tr.detach();
 
     while(game_window.isOpen())
     {

@@ -3,6 +3,7 @@
 
 #include <opencv2/highgui/highgui.hpp>
 #include "opencv2/imgproc/imgproc.hpp"
+#include <thread>
 
 class Kamerka
 {
@@ -22,6 +23,8 @@ class Kamerka
         ~Kamerka();
 
         cv::Point getPosition() const {return srodek;};
+
+        std::thread spawn(){return std::thread(&Kamerka::update, this);};
 
         void update();
 };
