@@ -16,7 +16,7 @@ class game
 
     public:
         game();
-        void start(unsigned int window_width, unsigned int window_height, unsigned int style);
+        void start(sf::RenderWindow &game_window);
 };
 
 
