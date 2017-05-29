@@ -24,8 +24,10 @@ void game::start(sf::RenderWindow &game_window)
     game_window.setView(view);
     celownik cel;
 
+    #ifdef KAMERKA
     thread tr = cel.cam.spawn();
     tr.detach();
+    #endif
 
     sf::Texture grass;
     grass.loadFromFile(".\\Backgrounds\\Background 01ORIGINAL\\PARALLAX\\layer_05_1920 x 1080.png");
