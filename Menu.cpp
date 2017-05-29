@@ -79,6 +79,12 @@ void Menu::start(sf::RenderWindow &window)
         teksturaTla.loadFromFile("menuu.jpg");
         tloMenu.setTexture(teksturaTla);
 
+        sf::Sprite logo;
+        sf::Texture teksturalogo;
+        teksturalogo.loadFromFile("logo.png");
+        logo.setTexture(teksturalogo);
+        logo.setPosition(820,150);
+
 
 	    window.clear();
 
@@ -137,6 +143,7 @@ void Menu::start(sf::RenderWindow &window)
                     }
                 }
                 window.draw(tloMenu);
+                window.draw(logo);
                 menu.draw(window);
                 window.display();
             }
