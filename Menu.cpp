@@ -96,7 +96,49 @@ void Menu::start(sf::RenderWindow &window)
             }
             else if(play==2)
             {
-                window.close();
+                window.clear();
+
+
+                sf::Event event;
+
+                while (window.pollEvent(event))
+                {
+                    switch (event.type)
+                    {
+                    case sf::Event::KeyReleased:
+                        switch (event.key.code)
+                        {
+                        case sf::Keyboard::Up:
+                            menu.MoveUp();
+                            break;
+
+                        case sf::Keyboard::Down:
+                            menu.MoveDown();
+                            break;
+
+                        case sf::Keyboard::Escape:
+                            play=0;
+                            break;
+
+                        case sf::Keyboard::Return:
+                            play=0;
+
+                            break;
+                        }
+
+                        break;
+                    case sf::Event::Closed:
+                        window.close();
+
+                        break;
+                    }
+                }
+                Opcje opcje(1366, 768);
+                window.draw(tloMenu);
+                window.draw(logo);
+                opcje.draw(window);
+                window.display();
+
             }
             else
             {
