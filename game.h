@@ -5,6 +5,7 @@
 #include "level.h"
 #include "celownik.h"
 #include "Menu.h"
+#include "Opcje.h"
 
 class game
 {
